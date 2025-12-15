@@ -1,7 +1,8 @@
 import OpenAI from "openai";
 
 const ALLOWED_ORIGINS = [
-  "https://countercognitivedecline.com"
+  "https://countercognitivedecline.com",
+  "https://www.countercognitivedecline.com"
 ];
 
 function buildCorsHeaders(origin) {
