@@ -74,8 +74,9 @@ export async function handler(event) {
       model: "gpt-5.1",
       instructions,
       input,
-      tools: [{ type: "web_search" }],
-      tool_choice: "required"
+      tools: [{ type: "web_search" }],  
+      tool_choice: "required",
+      max_output_tokens: 1200
     });
 
     // 5) Return text
