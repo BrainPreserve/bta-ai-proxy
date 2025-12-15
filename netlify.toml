@@ -1,2 +1,10 @@
+[build]
+  command = "npm install"
+  publish = "."
+
 [functions]
   directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+[functions."*"]
+  external_node_modules = ["openai"]
