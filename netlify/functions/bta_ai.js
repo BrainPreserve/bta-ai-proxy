@@ -87,12 +87,18 @@ Output rules:
   const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
   try {
-    const resp = await client.responses.create({
-      model: "gpt-5",
-      instructions,
-      input: JSON.stringify({ mode, section_id: section_id || null, bta_payload }),
-      tools: [{ type: "web_search" }]
-    });
+    const response = await client.responses.create({
+  model: "gpt-5.1",
+  instructions: instructions,
+  input: JSON.stringify({
+    mode: mode,
+    section_id: section_id || null,
+    bta_payload: bta_payload
+  }),
+  tools: [{ type: "web_search" }],
+  tool_choice: "required"
+});
+
 
     const text = resp.output_text || "";
     return json(200, { ok: true, text });
