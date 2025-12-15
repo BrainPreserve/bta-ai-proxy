@@ -81,6 +81,7 @@ Output rules:
 - If mode = section_deep_dive: focus deeply on that one section, then briefly note interactions with the other highest-risk sections.
 - If mode = full_report: provide an executive summary + section-by-section + phased plan (2w / 4w / 12w).
   `.trim();
+  if (event.body === "ping") return json(200, { ok: true, ping: true });
 
   const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
