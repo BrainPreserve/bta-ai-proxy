@@ -1,8 +1,7 @@
 import OpenAI from "openai";
 
 const ALLOWED_ORIGINS = [
-  "https://YOUR-WP-DOMAIN-HERE.com",
-  "https://www.YOUR-WP-DOMAIN-HERE.com"
+  "https://countercognitivedecline.com"
 ];
 
 // Simple helper: return CORS headers only for allowed origins
