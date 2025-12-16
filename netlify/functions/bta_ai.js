@@ -69,7 +69,7 @@ const bta_payload = body.bta_payload;
       "Return a detailed, clinically-structured answer with clear headings and actionable steps. " +
       "Do NOT invent user data. If something is missing, say so.";
 
-    const input = JSON.stringify({ mode, section_id, bta_payload });
+    const input = JSON.stringify({ mode, section_id, section_payload, bta_payload });
 
     const response = await client.responses.create({
       model: "gpt-5.1",
@@ -81,10 +81,12 @@ const bta_payload = body.bta_payload;
     });
 
     // 5) Return text
-    return json(200, event, {
-      ok: true,
-      result: response.output_text || ""
-    });
+    const out = response.output_text || "";
+return json(200, event, {
+  ok: true,
+  text: out,     // <— REQUIRED for your current WP code
+  result: out    // <— keep this so nothing else breaks
+});
   } catch (err) {
     // Always return CORS headers even on crashes
     return json(500, event, {
