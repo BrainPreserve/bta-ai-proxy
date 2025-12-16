@@ -46,8 +46,9 @@ export async function handler(event) {
     }
 
     const mode = body.mode;
-    const section_id = body.section_id || null;
-    const bta_payload = body.bta_payload;
+const section_id = body.section_id || null;
+const section_payload = body.section_payload || null;   // <— ADD THIS
+const bta_payload = body.bta_payload;
 
     if (!mode || !bta_payload) {
       return json(400, event, { error: "Missing mode or bta_payload" });
